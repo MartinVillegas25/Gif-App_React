@@ -1,16 +1,18 @@
 import { useState } from "react"
 import { AddCatogory } from "./components/AddCatogory";
-
+import { GrifGrid } from "./components/GrifGrid"
 
 
 export const GifExpertApp  = () => {
 
   //cuando tengo q almacenar algo y eso va a cambiar el estado del component, vamos a usar un hook, hay varios, nosotros vamos a usar el useState
 
-  const [category, setCategory] = useState(['Dragon ball', "goku"]);
+  const [category, setCategory] = useState(['Dragon ball']);
   const onAddCategory = (newCategory)=>{
+
+      if(category.includes(newCategory)) return;
       // no usasmos push, asi no lo mutamos, sino q creamos un nuevo arreglo
-      setCategory([...category, newCategory]);
+      setCategory([newCategory, ...category]);
       
   }
 
@@ -29,15 +31,19 @@ export const GifExpertApp  = () => {
      />
 
       {/*Listado de gifs */}
+      
    
-      <ol>
+      
+     
       {/* para renderizar los valores que viene de la API, usamos una expresion de JS, donde hacemos un map del arreglo q llega y retornamos los li para cada uno, es obligatorio poner una key, no importa que sea, puede ser cualquier cosa pero debe tener una key para poder renderizarlos */}
-          {category.map(category => {
-            return <li key={category}> {category}</li>
-          })}
-          
+      {category.map(category => 
+        (
+          <GrifGrid key={category} category={category}/>
+        ))
+      }
+  
 
-      </ol>
+
           {/* gif item */}
 
 
