@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react"
-import { getGif } from "../helpers/getgif"
+
 import { GrifItem } from "./GrifItem";
+import { useFetchGifs } from "../hooks/useFetchGifs";
 
 
 
@@ -8,26 +8,36 @@ import { GrifItem } from "./GrifItem";
 export const GrifGrid = ( {category}) => {
     
 
-  const [images, setImages] = useState([]);
+//vamos a crear un custom hook para reemplazar toto el codigo abajo
 
-  const getImages = async ()=>{
-    const newImages = await getGif(category);
-    setImages(newImages);
+const { images , isLoading } = useFetchGifs(category) // le podemos poner cualquier nombre, solo hay q poner  use delante del nombre, norma al crear hooks
+
+  // const [images, setImages] = useState([]);
+
+  // const getImages = async ()=>{
+  //   const newImages = await getGif(category);
+  //   setImages(newImages);
     
-  }
+  // }
 
-  //el useEffect es un hook que sirva para disparar un efecto secundario, q es un algo que you quiero dispadar cuando algo sucesa
+  // //el useEffect es un hook que sirva para disparar un efecto secundario, q es un algo que you quiero dispadar cuando algo sucesa
 
-  useEffect(() => {
-    getImages();
+  // useEffect(() => {
+  //   getImages();
     
-  }, []) //con las llaves vacias, le digo q solo lo renderice la primera vez
+  // }, []) 
+  
+  //con las llaves vacias, le digo q solo lo renderice la primera vez
   
 
   
     return (
     <>
         <h3>{category}</h3>
+
+        {
+          isLoading && (<h2>Loading...</h2>)
+        }
 
         <div className="card-grid">
           {
