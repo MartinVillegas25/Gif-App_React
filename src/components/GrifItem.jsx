@@ -1,4 +1,5 @@
 
+import PropTypes from 'prop-types';
 
 
 
@@ -10,3 +11,10 @@ export const GrifItem = ( {title , url}) => {
     </div>
   )
 }
+
+
+GrifItem.propTypes = {
+  title : PropTypes.string.isRequired,
+  url : PropTypes.string.isRequired
+}
+

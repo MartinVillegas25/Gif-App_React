@@ -1,4 +1,4 @@
-
+import {PropTypes } from 'prop-types'
 import { GrifItem } from "./GrifItem";
 import { useFetchGifs } from "../hooks/useFetchGifs";
 
@@ -54,4 +54,9 @@ const { images , isLoading } = useFetchGifs(category) // le podemos poner cualqu
     
     </>
   )
+}
+
+GrifGrid.propTypes = {
+  category : PropTypes.string.isRequired
+
 }
