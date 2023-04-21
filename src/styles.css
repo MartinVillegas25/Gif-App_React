@@ -45,6 +45,7 @@
     @media only screen and (max-width: 768px) {
       font-size:3rem;
     }
+
   }
 
 
@@ -66,6 +67,8 @@
     flex-wrap: wrap;
     justify-content: center;
     margin-bottom: 50px;
+   
+    
   }
   
   .card {
@@ -84,23 +87,29 @@
     max-height: auto;
   }
   
-  .card p {
+  .card span {
     background-color: white;
-    flex: 1;
     font-size: 1.5rem;
     padding: 10px;
     text-align: center;
-    cursor: pointer;
     text-transform: uppercase;
-
+    cursor: pointer;
+    display: block;
+    width: 100%;
   }
+
+
+ 
+
+
+
   .card:hover{
     background-color: rgb(15, 8, 8);
 
     
   }
 
-  .card:hover p{
+  .card:hover span{
     background-color: rgb(15, 8, 8);
     color: #fff;
   }
@@ -129,3 +138,5 @@
     font-size: 1rem;
     font-weight: bold;
   }
+
+

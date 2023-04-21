@@ -3,13 +3,34 @@ import PropTypes from 'prop-types';
 
 
 
+
+
 export const GrifItem = ( {title , url}) => {
+
+
+  const copyLink = ()=>{
+
+    window.addEventListener('click', (e)=>{
+      
+      const link = e.target.parentNode.firstChild.src;    
+      navigator.clipboard.writeText(link);
+
+      
+
+    })
+  }
+
   
   return (
-    <div className="card">
-        <img src={url} alt={title} />
-        <p>{title}</p>
-    </div>
+    <>
+      <div className="card">
+          <img src={url} alt={title} />
+        
+        
+            <span onClick={copyLink}>Copy</span>
+      </div>
+          
+    </>
   )
 }
 
