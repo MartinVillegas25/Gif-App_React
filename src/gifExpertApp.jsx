@@ -7,7 +7,7 @@ export const GifExpertApp  = () => {
 
   //cuando tengo q almacenar algo y eso va a cambiar el estado del component, vamos a usar un hook, hay varios, nosotros vamos a usar el useState
 
-  const [category, setCategory] = useState(['Dragon ball']);
+  const [category, setCategory] = useState([]);
   const onAddCategory = (newCategory)=>{
 
       if(category.includes(newCategory)) return;
@@ -18,6 +18,8 @@ export const GifExpertApp  = () => {
 
   return (
     <>
+
+    <div className="container">
         {/* titulo */}
 
         <h1>GIF APP</h1>
@@ -29,6 +31,8 @@ export const GifExpertApp  = () => {
     //vamos a hacerlo de otra forma, que lo unico que haga este componente es obtener el campo y que el componente padre sea el q haga el cambio 
         onNewcategoty = { (value) => onAddCategory(value)}
      />
+
+    </div>
 
       {/*Listado de gifs */}
       
@@ -46,6 +50,12 @@ export const GifExpertApp  = () => {
 
           {/* gif item */}
 
+
+      <footer className="footer">
+
+        <p>Curso de React</p>
+        <p>Martin Villegas</p>
+      </footer>
 
     </>
   )
